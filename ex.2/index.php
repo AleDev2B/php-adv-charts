@@ -11,5 +11,6 @@
   </head>
   <body>
     <canvas id="myChart"></canvas>
+    <canvas id="myPieChart"></canvas>
   </body>
 </html>

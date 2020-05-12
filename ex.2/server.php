@@ -4,12 +4,17 @@
 
   include_once "database.php";
 
-  // print_r($graphs);
-  $newArr = [];
 
-  foreach ($graphs[fatturato][data] as $value) {
-    $newArr[] = $value;
-  }
+  // $newArr = [];
+  //
+  // foreach ($graphs[fatturato][data] as $value) {
+  //   $newArr[] = $value;
+  // };
 
-  echo json_encode($newArr);
+  // print_r($graphs[fatturato_by_agent][data]);
+  // foreach ($graphs[fatturato_by_agent][data] as $valor) {
+  //   $newArrPieData[] = $valor;
+  // };
+
+  echo json_encode($graphs[fatturato][data]);
  ?>
