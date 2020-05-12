@@ -13,7 +13,6 @@ $(document).ready(function() {
     $.ajax({
       url: "server.php",
       success: function(data){
-        console.log(data);
         var ctx = $('#myChart');
         var myChart = new Chart(ctx, {
             type: "line",
@@ -41,7 +40,6 @@ $(document).ready(function() {
                     borderWidth: 1
                 }]
             },
-
             options: {
                 scales: {
                     yAxes: [{
@@ -79,7 +77,6 @@ $(document).ready(function() {
                     borderWidth: 1
                 }]
             },
-
             options: {
                 scales: {
                     yAxes: [{
@@ -98,6 +95,5 @@ $(document).ready(function() {
     ajaxCall();
   } // fine della function che disegna il grafico
 
-  printChart();  // <-- pass the argument in the printChart function to select the type of chart.
-
+  printChart();  
 });
