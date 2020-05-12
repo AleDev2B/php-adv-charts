@@ -13,15 +13,15 @@ $(document).ready(function() {
     $.ajax({
       url: "server.php",
       success: function(data){
-        // console.log(data);
+        console.log(data);
         var ctx = $('#myChart');
         var myChart = new Chart(ctx, {
             type: typeOfChart,
             data: {
-                labels: getMonthsList(),
+                labels: data.name,
                 datasets: [{
                     label: 'Vendite',
-                    data: data,
+                    data: data.value,
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -59,6 +59,6 @@ $(document).ready(function() {
     ajaxCall(typeOfChart);
   } // fine della function che disegna il grafico
 
-  printChart("bar");  // <-- pass the argument in the printChart function to select the type of chart.
+  printChart("pie");  // <-- pass the argument in the printChart function to select the type of chart.
 
 });
