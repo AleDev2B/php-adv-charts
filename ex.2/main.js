@@ -55,11 +55,11 @@ $(document).ready(function() {
     }); // fine della chiamata ajax
   } // fine della funzione ajax call
 
-  function printChart() {
-    ajaxCall("line");     // <-- pass the argument in the ajaxCall function to select the type of chart.
-    
+  function printChart(typeOfChart) {
+    ajaxCall(typeOfChart);
+
   } // fine della function disegna il grafico a linea
 
-  printChart();
+  printChart("line");  // <-- pass the argument in the printChart function to select the type of chart.
 
 });
