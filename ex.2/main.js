@@ -57,9 +57,8 @@ $(document).ready(function() {
 
   function printChart(typeOfChart) {
     ajaxCall(typeOfChart);
+  } // fine della function che disegna il grafico
 
-  } // fine della function disegna il grafico a linea
-
-  printChart("line");  // <-- pass the argument in the printChart function to select the type of chart.
+  printChart("bar");  // <-- pass the argument in the printChart function to select the type of chart.
 
 });
