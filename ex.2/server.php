@@ -4,15 +4,18 @@
 
   include_once "database.php";
 
-  $res[] = array_keys($graphs[fatturato_by_agent][data]);
-  $res[] = array_values($graphs[fatturato_by_agent][data]);
-  $res[] = array_values($graphs[fatturato][data]);
+  $abc = ["fatturato" => $graphs[fatturato]];
+  $def = ["type" => $graphs[fatturato_by_agent][type]];
 
-    $res= [
-      "name" => $res[0],
-      "value"=> $res[1],
-      "monthlySales"=> $res[2]
-    ];
+  foreach ($graphs[fatturato_by_agent][data] as $key => $value) {
+    $etichette[] = $key;
+    $valori[] = $value;
+  };
 
-  echo json_encode($res);
+  $def["name"] = $etichette;
+  $def["value"] = $valori;
+  $def = ["fatturato_by_agent" => $def];
+  $abc += $def;
+
+  echo json_encode($abc);
  ?>
