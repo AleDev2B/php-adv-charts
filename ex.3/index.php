@@ -11,5 +11,6 @@
   <body>
     <canvas id="myChart"></canvas>
     <canvas id="myPieChart"></canvas>
+    <canvas id="tripleLineChart"></canvas>
   </body>
 </html>
