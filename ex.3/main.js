@@ -47,7 +47,7 @@ $(document).ready(function() {
         level: "guest"
       },
       success: function(data){
-        printChart(data,idCanvas,data.fatturato.type,getMonthsList(),data.fatturato.data);
+        printChart(data,idCanvas,data.type,getMonthsList(),data.data);
       }
     });
   }
@@ -59,6 +59,7 @@ $(document).ready(function() {
         level: "employee"
       },
       success: function(data){
+        console.log(data.fatturato_by_agent);
         printChart(data,idCanvas,data.fatturato_by_agent.type,data.fatturato_by_agent.name,data.fatturato_by_agent.value);
       }
     });
@@ -116,7 +117,7 @@ $(document).ready(function() {
   };
 
 
-  fatturatoCall($('#myChart'));
+  // fatturatoCall($('#myChart'));
   fatturato_by_agentCall($('#myPieChart'));
-  teamEfficiencyCall($('#tripleLineChart'));
+  // teamEfficiencyCall($('#tripleLineChart'));
 });
