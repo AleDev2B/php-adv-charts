@@ -4,6 +4,13 @@ $(document).ready(function() {
     return moment.months();
   };
 
+  function getUserLevel() {
+    var url_string = window.location;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("level");
+    return c;
+  }
+
   function printChart(data,idCanvas,typeChart,labelsVal,listType) {
     var ctx = idCanvas;
     var myChart = new Chart(ctx, {
@@ -44,7 +51,7 @@ $(document).ready(function() {
     $.ajax({
       url: "server.php",
       data: {
-        level: "guest"
+        level: console.log(getUserLevel())
       },
       success: function(data){
         printChart(data,idCanvas,data.type,getMonthsList(),data.data);
@@ -56,10 +63,9 @@ $(document).ready(function() {
     $.ajax({
       url: "server.php",
       data: {
-        level: "employee"
+        level: getUserLevel()
       },
       success: function(data){
-        console.log(data.fatturato_by_agent);
         printChart(data,idCanvas,data.fatturato_by_agent.type,data.fatturato_by_agent.name,data.fatturato_by_agent.value);
       }
     });
@@ -69,7 +75,7 @@ $(document).ready(function() {
     $.ajax({
       url: "server.php",
       data: {
-        level: "clevel"
+        level: getUserLevel()
       },
       success: function(data){
         var ctx = idCanvas;
@@ -116,8 +122,27 @@ $(document).ready(function() {
     })
   };
 
-
-  // fatturatoCall($('#myChart'));
+  fatturatoCall($('#myChart'));
   fatturato_by_agentCall($('#myPieChart'));
-  // teamEfficiencyCall($('#tripleLineChart'));
+  teamEfficiencyCall($('#tripleLineChart'));
+
 });
+
+/*
+
+  [
+    {
+    label : 'team1'
+    data : [...]
+  },
+  {
+  label : 'team2'
+  data : [...]
+},
+{
+label : 'team3
+data : [...]
+},
+  ]
+
+*/

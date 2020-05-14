@@ -16,18 +16,17 @@
   $def[data] = ["name" => $etichette];
   $def += ["value" => $valori];
   $def = ["fatturato_by_agent" => $def];
-  $abc += $def;
-  $abc += $ghi;
 
+  $abc += $def; // <-- list with fatturato + fatturato_by_agent
+  $ghi += $abc; // <-- $ghi lista completa
   $accessLevel = $_GET["level"];
-  // echo $accessLevel;
-  
+
   if ($accessLevel == "clevel") {
-    echo json_encode($abc);
+    echo json_encode($ghi);
   } elseif ($accessLevel == "employee") {
-    echo json_encode($abc[fatturato] + $abc[fatturato_by_agent]);
+    echo json_encode($abc);
   } else {
-    echo json_encode($abc[fatturato]);
+    echo json_encode($graphs[fatturato]);
   }
 
  ?>
