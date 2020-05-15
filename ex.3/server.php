@@ -13,20 +13,20 @@
     $valori[] = $value;
   };
 
-  $def[data] = ["name" => $etichette];
+  $def += ["name" => $etichette];
   $def += ["value" => $valori];
   $def = ["fatturato_by_agent" => $def];
 
-  $abc += $def; // <-- list with fatturato + fatturato_by_agent
-  $ghi += $abc; // <-- $ghi lista completa
+  $def += $abc; // <-- list with fatturato + fatturato_by_agent
+  $ghi += $def; // <-- $ghi lista completa
   $accessLevel = $_GET["level"];
 
   if ($accessLevel == "clevel") {
     echo json_encode($ghi);
   } elseif ($accessLevel == "employee") {
+    echo json_encode($def);
+  }  else {
     echo json_encode($abc);
-  } else {
-    echo json_encode($graphs[fatturato]);
   }
 
  ?>
